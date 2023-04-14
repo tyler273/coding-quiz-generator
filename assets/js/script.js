@@ -1,4 +1,4 @@
-console.log("The penguin is lost");
+console.log("The penguin is lost. It's me, I'm the penguin.");
 
 var boxElem = document.querySelector("#color-flip-box");
 
@@ -30,7 +30,6 @@ for(var i = 0; i < boxNames.length; i++){
   console.log(boxNames[i]);
   var boxFigure = document.createElement("button"); 
   boxFigure.textContent = boxNames[0].buttonArray[i];
-  // will put box creation today after class
   var box = document.getElementById("buttonBox");
   box.append(boxFigure);
 }
