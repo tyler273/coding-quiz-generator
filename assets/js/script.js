@@ -44,6 +44,7 @@ const questionDisplay = document.getElementById("question");
 const answerOptions = document.querySelectorAll(".choice");
 const gameOverScreen = document.getElementById("game-over-screen");
 const submitButton = document.getElementById("submit-score-btn");
+const initialsInput = document.getElementById("initials");
 
 
 // Variables to track game state
@@ -159,9 +160,17 @@ function endQuiz() {
 	  event.preventDefault();
   
 	  const initials = initialsInput.value;
-	  
+
+	 // Save initials and score in localStorage
+	  const scoreData = {
+		initials: initials,
+		score: score};
+		localStorage.setItem("scoreData", JSON.stringify(scoreData));
+
+	 // Clear initials input value
+		initialsInput.value = "";
 	}
-  }
+}
 
 
 
