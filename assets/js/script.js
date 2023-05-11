@@ -40,32 +40,42 @@
 var boxElem = document.querySelector("#color-flip-box");
 
 // array of objects
-var boxNames = [
+var questionsArray = [
   {
-    question: "Question 1"
+    question: "Question 1",
+	choices: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+    correctAnswer: 0
     
   },
   
   {
-    question: "Question 2"
+    question: "Question 2",
+	choices: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+    correctAnswer: 0
     
   },
   
   {
-    question: "Question 3"
+    question: "Question 3",
+	choices: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+    correctAnswer: 0
   },
   
   {
-    question: "Question 4"
+    question: "Question 4",
+	choices: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+    correctAnswer: 0
   },
 
   {
-    question: "Question 5"
+    question: "Question 5",
+	choices: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+    correctAnswer: 0
   }
 ];
 
-for(var i = 0; i < boxNames.length; i++){
-  console.log(boxNames[i]);
+for(var i = 0; i < questionsArray.length; i++){
+  console.log(questionsArray[i]);
 }
 
 var boxIndex = 0;
@@ -80,13 +90,12 @@ boxElem.addEventListener("click", function(){
   var boxFigure = document.createElement("FIGURE");
 
   // 2. text / attributes
-  console.log(boxNames[boxIndex]);
+  console.log(questionsArray[boxIndex]);
   boxIndex++; // goes to next box
-  if(boxIndex >= boxNames.length){
+  if(boxIndex >= questionsArray.length){
     boxIndex = 0;
   }
-  boxFigure.textContent = boxNames[boxIndex].question;
-  boxFigure.style.backgroundColor = boxNames[boxIndex].backgroundColor;
+  boxFigure.textContent = questionsArray[boxIndex].question;
 
   // 3. append
   boxElem.append(boxFigure);
