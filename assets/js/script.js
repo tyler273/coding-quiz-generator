@@ -37,8 +37,6 @@
 //   box.append(boxFigure);
 // }
 
-console.log("The penguin is lost");
-
 var boxElem = document.querySelector("#color-flip-box");
 
 // array of objects
@@ -68,10 +66,8 @@ var boxNames = [
 
 for(var i = 0; i < boxNames.length; i++){
   console.log(boxNames[i]);
-  // will put box creation today after class
 }
 
-var boxIsGreen = true;
 var boxIndex = 0;
 
 // on every click
