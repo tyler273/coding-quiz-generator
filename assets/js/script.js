@@ -37,12 +37,20 @@
 //   box.append(boxFigure);
 // }
 
-// Global variables
+// Important elements to be referenced
 const startButton = document.getElementById("start-btn")
-const timerDisplay = document.getElementById('time-remaining');
-const questionDisplay = document.getElementById('question');
-const answerOptions = document.querySelectorAll('.choice');
-const scoreForm = document.getElementById('score-form');
+const timerDisplay = document.getElementById("time-remaining");
+const questionDisplay = document.getElementById("question");
+const answerOptions = document.querySelectorAll(".choice");
+const gameOverScreen = document.getElementById("game-over-screen");
+const submitButton = document.getElementById("submit-score-btn");
+
+
+// Variables to track game state
+let currentQuestionIndex = 0;
+let score = 0;
+let timeRemaining = 60;
+let timerInterval;
 
 // Quiz questions
 const questions = [
@@ -86,19 +94,76 @@ startButton.addEventListener("click", startQuiz)
 function startQuiz() {
 	startButton.disabled = true;
 	timerInterval = setInterval(updateTimer, 1000);
-	displayQuestion;
+	displayQuestion();
 }
 
 // Function to update the timer display
 function updateTimer() {
-	timeRemaining--;
-	timerDisplay.textContent = `Time: $(timeRemaining)`;
+	timeRemaining --;
+	timerDisplay.textContent = `Time: ${timeRemaining} seconds`;
 
 	if (timeRemaining <=0) {
 		clearInterval(timerInterval);
 		endQuiz();
 	}
 }
+// Function to display current question
+function displayQuestion() {
+	const currentQuestion = questions[currentQuestionIndex];
+	questionDisplay.textContent = currentQuestion.question;
+
+	answerOptions.forEach((option, i) => {
+		option.textContent = currentQuestion.choices[i];
+		option.addEventListener("click", handleAnswer);
+	});
+}
+
+// Function to handle user answer selection
+function handleAnswer() {
+	const selectedAnswerIndex = Array.from(answerOptions).indexOf(this);
+	const currentQuestion = questions[currentQuestionIndex];
+
+	if (selectedAnswerIndex === currentQuestion.correctAnswer) {
+		score++;
+	} else {
+		timeRemaining -= 10;
+	}
+
+	currentQuestionIndex++;
+
+	if (currentQuestionIndex < questions.length) {
+		displayQuestion();
+	} else {
+		endQuiz();
+	}
+}
+
+// Function to end quiz
+function endQuiz() {
+	clearInterval(timerInterval);
+  
+	// Show game over screen
+	questionDisplay.textContent = "Game Over!";
+	answerOptions.forEach(option => option.style.display = "none");
+	gameOverScreen.style.display = "block";
+  
+	// Display the score
+	const scoreDisplay = document.createElement("p");
+	scoreDisplay.textContent = `Your score: ${score}/5`;
+	gameOverScreen.appendChild(scoreDisplay);
+  
+	// Handle score submission
+	submitButton.addEventListener('click', handleScoreSubmission);
+  
+	function handleScoreSubmission(event) {
+	  event.preventDefault();
+  
+	  const initials = initialsInput.value;
+	  
+	}
+  }
+
+
 
 // for(const i = 0; i < questionsArray.length; i++){
 //   console.log(questionsArray[i]);
