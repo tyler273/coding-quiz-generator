@@ -88,8 +88,6 @@ const questions = [
   }
 ];
 console.log(questions);
-// Event listener for start button
-startButton.addEventListener("click", startQuiz)
 
 // Function to start the quiz
 function startQuiz() {
@@ -112,12 +110,20 @@ function updateTimer() {
 function displayQuestion() {
 	const currentQuestion = questions[currentQuestionIndex];
 	questionDisplay.textContent = currentQuestion.question;
+	questionDisplay.removeAttribute("hidden");
 
 	answerOptions.forEach((option, i) => {
 		option.textContent = currentQuestion.choices[i];
 		option.addEventListener("click", handleAnswer);
+		option.removeAttribute("hidden");
 	});
+
+	// Show the timer
+	timerDisplay.classList.remove("hidden");
 }
+
+// Event listener for start button
+startButton.addEventListener("click", startQuiz)
 
 // Function to handle user answer selection
 function handleAnswer() {
@@ -148,6 +154,9 @@ function endQuiz() {
 	answerOptions.forEach(option => option.style.display = "none");
 	gameOverScreen.style.display = "block";
   
+	// Show the game over screen
+	gameOverScreen.classList.remove("hidden");
+	
 	// Display the score
 	const scoreDisplay = document.createElement("p");
 	scoreDisplay.textContent = `Your score: ${score}/5`;
@@ -171,32 +180,3 @@ function endQuiz() {
 		initialsInput.value = "";
 	}
 }
-
-
-
-// for(const i = 0; i < questionsArray.length; i++){
-//   console.log(questionsArray[i]);
-// }
-
-// const boxIndex = 0;
-
-// // on every click
-// boxElem.addEventListener("click", function(){
-
-//   // clears box element
-//   boxElem.innerHTML = "";
-
-//   // 1. createElement
-//   const boxFigure = document.createElement("FIGURE");
-
-//   // 2. text / attributes
-//   console.log(questionsArray[boxIndex]);
-//   boxIndex++; // goes to next box
-//   if(boxIndex >= questionsArray.length){
-//     boxIndex = 0;
-//   }
-//   boxFigure.textContent = questionsArray[boxIndex].question;
-
-//   // 3. append
-//   boxElem.append(boxFigure);
-// });
