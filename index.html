@@ -18,18 +18,23 @@
     <h1>Coding Quiz Generator</h1>
     <div id="start-screen">
       <p>Test your coding knowledge! Click the button below to start.</p>
-      <button>Start Quiz</button>
+      <button id="start-btn">Start Quiz</button>
     </div>
-    <div id="quiz screen" class="hidden">
+    <div id="quiz-screen" class="hidden">
       <p id="time-remaining">Time: <span id="time">60</span> seconds</p>
-      <p id="question"></p>
-      <div id="answers"></div>
+      <p id="question">Question goes here</p>
+      <div id="choices">
+        <button class="choice">Option 1</button>
+        <button class="choice">Option 2</button>
+        <button class="choice">Option 3</button>
+        <button class="choice">Option 4</button>
+      </div>
     </div>
     <div id="game-over-screen" class="hidden">
       <h2>Game Over!</h2>
       <p>Your score: <span id="score"></span></p>
     </div>
-    <form>
+    <form id="score-form">
       <label for="initials">Enter initials:</label>
       <input type="text" id="initials" name="initials" maxlength="3" required>
       <button id="submit-score">Submit</button>

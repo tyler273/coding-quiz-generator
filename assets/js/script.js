@@ -1,9 +1,9 @@
-// var boxElement = document.querySelector("#color-flip-box");
-// var questionIndex = 0;
+// const boxElement = document.querySelector("#color-flip-box");
+// const questionIndex = 0;
 
 // // array of objects
 
-// var myQuestions = [
+// const myQuestions = [
 // 	{
 // 		question: "What is 10/2?",
 // 		answers: {
@@ -29,18 +29,23 @@
 // console.log(myQuestions[0].question)
 
 
-// for(var i = 0; i < myQuestions.length; i++){
+// for(const i = 0; i < myQuestions.length; i++){
 //   console.log(myQuestions[i]);
-//   var boxFigure = document.createElement("button"); 
+//   const boxFigure = document.createElement("button"); 
 //   boxFigure.textContent = myQuestions[0].buttonArray[i];
-//   var box = document.getElementById("buttonBox");
+//   const box = document.getElementById("buttonBox");
 //   box.append(boxFigure);
 // }
 
-var boxElem = document.querySelector("#color-flip-box");
+// Global variables
+const startButton = document.getElementById("start-btn")
+const timerDisplay = document.getElementById('time-remaining');
+const questionDisplay = document.getElementById('question');
+const answerOptions = document.querySelectorAll('.choice');
+const scoreForm = document.getElementById('score-form');
 
-// array of objects
-var questionsArray = [
+// Quiz questions
+const questions = [
   {
     question: "Question 1",
 	choices: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
@@ -73,30 +78,51 @@ var questionsArray = [
     correctAnswer: 0
   }
 ];
+console.log(questions);
+// Event listener for start button
+startButton.addEventListener("click", startQuiz)
 
-for(var i = 0; i < questionsArray.length; i++){
-  console.log(questionsArray[i]);
+// Function to start the quiz
+function startQuiz() {
+	startButton.disabled = true;
+	timerInterval = setInterval(updateTimer, 1000);
+	displayQuestion;
 }
 
-var boxIndex = 0;
+// Function to update the timer display
+function updateTimer() {
+	timeRemaining--;
+	timerDisplay.textContent = `Time: $(timeRemaining)`;
 
-// on every click
-boxElem.addEventListener("click", function(){
+	if (timeRemaining <=0) {
+		clearInterval(timerInterval);
+		endQuiz();
+	}
+}
 
-  // clears box element
-  boxElem.innerHTML = "";
+// for(const i = 0; i < questionsArray.length; i++){
+//   console.log(questionsArray[i]);
+// }
 
-  // 1. createElement
-  var boxFigure = document.createElement("FIGURE");
+// const boxIndex = 0;
 
-  // 2. text / attributes
-  console.log(questionsArray[boxIndex]);
-  boxIndex++; // goes to next box
-  if(boxIndex >= questionsArray.length){
-    boxIndex = 0;
-  }
-  boxFigure.textContent = questionsArray[boxIndex].question;
+// // on every click
+// boxElem.addEventListener("click", function(){
 
-  // 3. append
-  boxElem.append(boxFigure);
-});
+//   // clears box element
+//   boxElem.innerHTML = "";
+
+//   // 1. createElement
+//   const boxFigure = document.createElement("FIGURE");
+
+//   // 2. text / attributes
+//   console.log(questionsArray[boxIndex]);
+//   boxIndex++; // goes to next box
+//   if(boxIndex >= questionsArray.length){
+//     boxIndex = 0;
+//   }
+//   boxFigure.textContent = questionsArray[boxIndex].question;
+
+//   // 3. append
+//   boxElem.append(boxFigure);
+// });
