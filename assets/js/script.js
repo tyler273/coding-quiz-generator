@@ -1,42 +1,3 @@
-// const boxElement = document.querySelector("#color-flip-box");
-// const questionIndex = 0;
-
-// // array of objects
-
-// const myQuestions = [
-// 	{
-// 		question: "What is 10/2?",
-// 		answers: {
-// 			a: '3',
-// 			b: '5',
-// 			c: '115'
-// 		},
-// 		correctAnswer: 'b'
-// 	},
-// 	{
-// 		question: "What is 30/3?",
-// 		answers: {
-// 			a: '3',
-// 			b: '5',
-// 			c: '10'
-// 		},
-// 		correctAnswer: 'c'
-   
-// 	}
-
-// ];
-
-// console.log(myQuestions[0].question)
-
-
-// for(const i = 0; i < myQuestions.length; i++){
-//   console.log(myQuestions[i]);
-//   const boxFigure = document.createElement("button"); 
-//   boxFigure.textContent = myQuestions[0].buttonArray[i];
-//   const box = document.getElementById("buttonBox");
-//   box.append(boxFigure);
-// }
-
 // Important elements to be referenced
 const startButton = document.getElementById("start-btn")
 const timerDisplay = document.getElementById("time-remaining");
@@ -180,3 +141,44 @@ function endQuiz() {
 		initialsInput.value = "";
 	}
 }
+
+
+
+// const boxElement = document.querySelector("#color-flip-box");
+// const questionIndex = 0;
+
+// // array of objects
+
+// const myQuestions = [
+// 	{
+// 		question: "What is 10/2?",
+// 		answers: {
+// 			a: '3',
+// 			b: '5',
+// 			c: '115'
+// 		},
+// 		correctAnswer: 'b'
+// 	},
+// 	{
+// 		question: "What is 30/3?",
+// 		answers: {
+// 			a: '3',
+// 			b: '5',
+// 			c: '10'
+// 		},
+// 		correctAnswer: 'c'
+   
+// 	}
+
+// ];
+
+// console.log(myQuestions[0].question)
+
+
+// for(const i = 0; i < myQuestions.length; i++){
+//   console.log(myQuestions[i]);
+//   const boxFigure = document.createElement("button"); 
+//   boxFigure.textContent = myQuestions[0].buttonArray[i];
+//   const box = document.getElementById("buttonBox");
+//   box.append(boxFigure);
+// }
