@@ -6,11 +6,11 @@ The goal of this project was to create an application that would generate a time
 
 I was able to complete this assignment and properly code statements with the help of my tutor Katie Redford and the aid of ChatGPT.
 
-OpenAI. "Code for a Fully Functioning Website with a Code Quiz." ChatGPT, 2023. URL: [URL of this conversation] (Accessed on May 10, 2023)
+OpenAI. "Code for a Fully Functioning Website with a Code Quiz." ChatGPT, 2023. URL: [https://chat.openai.com/c/3d81ee79-8ddc-49cb-85c9-9343bc8e3f0a] (Accessed on May 10, 2023)
 
 ## Usage
 
-(IMG of website to be placed here)
+<img src="https://github.com/tyler273/coding-quiz-generator/blob/main/assets/images/website1.png" />
 
 [Click here for repo](https://github.com/tyler273/coding-quiz-generator)
 
