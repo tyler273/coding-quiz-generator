@@ -6,6 +6,8 @@ const answerOptions = document.querySelectorAll(".choice");
 const gameOverScreen = document.getElementById("game-over-screen");
 const submitButton = document.getElementById("submit-score-btn");
 const initialsInput = document.getElementById("initials");
+const quizScreen = document.getElementById("quiz-screen");
+const scoreForm = document.getElementById("score-form");
 
 
 // Variables to track game state
@@ -17,34 +19,34 @@ let timerInterval;
 // Quiz questions
 const questions = [
   {
-    question: "Question 1",
-	choices: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
-    correctAnswer: 0
+    question: "1. What is a block of code that is repeatedly called throughout JavaScript as it's being reused?",
+	choices: ['a variable', 'a function', 'a for loop', 'an array'],
+    correctAnswer: 1
     
   },
   
   {
-    question: "Question 2",
-	choices: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
-    correctAnswer: 0
+    question: "2. These are used to test whether a statement is true or not, they're called...?",
+	choices: ['a variable', 'a function', 'a conditional', 'a function'],
+    correctAnswer: 2
     
   },
   
   {
-    question: "Question 3",
-	choices: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+    question: "3. A string of characters is known as a...?",
+	choices: ['string', 'function', 'potato', 'terminal'],
     correctAnswer: 0
   },
   
   {
-    question: "Question 4",
-	choices: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
-    correctAnswer: 0
+    question: "4. To make a button activate on click, you would need to use an...?",
+	choices: ['function', 'variable', 'JSON', 'event listener'],
+    correctAnswer: 3
   },
 
   {
-    question: "Question 5",
-	choices: ['Option 1', 'Option 2', 'Option 3', 'Option 4'],
+    question: "5. A place to enter characters to be saved to local storage is known as a?",
+	choices: ['form', 'button', 'function', 'string'],
     correctAnswer: 0
   }
 ];
@@ -52,6 +54,7 @@ console.log(questions);
 
 // Function to start the quiz
 function startQuiz() {
+	quizScreen.classList.remove("hidden");
 	startButton.disabled = true;
 	timerInterval = setInterval(updateTimer, 1000);
 	displayQuestion();
@@ -123,6 +126,8 @@ function endQuiz() {
 	scoreDisplay.textContent = `Your score: ${score}/5`;
 	gameOverScreen.appendChild(scoreDisplay);
   
+	scoreForm.classList.remove("hidden");
+
 	// Handle score submission
 	submitButton.addEventListener('click', handleScoreSubmission);
   
